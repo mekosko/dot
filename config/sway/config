@@ -211,6 +211,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#
+#
+#
+bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
