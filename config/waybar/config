@@ -74,8 +74,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "V",
+            "deactivated": "X"
         }
     },
     "tray": {
@@ -104,17 +104,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+        "format": "BAT {capacity}%",
+        "format-charging": "BAT {capacity}%",
+        "format-plugged": "BAT {capacity}%"
     },
     "battery#bat2": {
         "bat": "BAT2"
