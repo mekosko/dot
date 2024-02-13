@@ -120,26 +120,13 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        },
-        "on-click": "pavucontrol"
+        "format":                 "OUT {volume}% {format_source}",
+        "format-bluetooth":       "OUT {volume}% BT {format_source}",
+        "format-bluetooth-muted": "OUT MT BT {format_source}",
+        "format-muted":           "OUT MT {format_source}",
+        "format-source":          "MIC {volume}%",
+        "format-source-muted":    "MIC MT",
+        "on-click":               "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {}",
