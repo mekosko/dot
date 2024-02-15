@@ -2,9 +2,7 @@
     "height": 30,
     "spacing": 6,
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad"
+        "sway/workspaces"
     ],
     "modules-center": [
         "sway/window"
@@ -20,19 +18,6 @@
         "clock",
         "tray"
     ],
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
