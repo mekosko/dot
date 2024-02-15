@@ -50,7 +50,7 @@
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) WI",
         "format-ethernet": "{ipaddr}/{cidr} WR",
-        "tooltip-format": "{ifname} via {gwaddr} WR",
+        "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP) WR",
         "format-disconnected": "DISCONNECTED",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
