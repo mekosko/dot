@@ -15,22 +15,12 @@
         "pulseaudio",
         "network",
         "backlight",
-        "keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",
         "clock",
         "tray"
     ],
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
