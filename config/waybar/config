@@ -4,8 +4,7 @@
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad",
-        "custom/media"
+        "sway/scratchpad"
     ],
     "modules-center": [
         "sway/window"
@@ -90,16 +89,5 @@
         "format-source":          "MIC {volume}%",
         "format-source-muted":    "MIC MT",
         "on-click":               "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     }
 }
