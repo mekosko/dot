@@ -43,13 +43,16 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     bluez
+    brightnessctl
     grim
     helix
     mako
     nixfmt-classic
+    pulsemixer
     slurp
     wl-clipboard
   ];
+  services.flatpak.enable = true;
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
