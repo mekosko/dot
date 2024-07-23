@@ -10,6 +10,20 @@
     "luks-main-nvme-HFM256GDJTNG-8310A_CY02N00231100230M-part2".device =
       "/dev/disk/by-id/nvme-HFM256GDJTNG-8310A_CY02N00231100230M-part2";
   };
+  powerManagement.enable = false;
+
+  systemd.targets.hybrid-sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.sleep.enable = false;
+
+  services.upower = {
+    enable = true;
+    criticalPowerAction = "PowerOff";
+    percentageAction = 10;
+    percentageCritical = 15;
+    percentageLow = 20;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -50,7 +64,10 @@
     nixfmt-classic
     pulsemixer
     slurp
+    waybar
+    wget
     wl-clipboard
+    wofi
   ];
   services.flatpak.enable = true;
   programs.sway = {
