@@ -91,6 +91,13 @@
     home.stateVersion = "24.05";
   };
 
+  # Enable sway via nixos for things to work properly.
+  services.libinput.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     bluez
@@ -106,10 +113,6 @@
     wl-clipboard
     wofi
   ];
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
   services.flatpak.enable = true;
 
   system.stateVersion = "24.05";
