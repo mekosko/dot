@@ -75,7 +75,6 @@
     };
     wayland.windowManager.sway = {
       enable = true;
-      wrapperFeatures.gtk = true;
       config.modifier = "Mod4";
     };
     wayland.windowManager.sway.config.input = {
@@ -107,10 +106,10 @@
     wl-clipboard
     wofi
   ];
-  xdg.portal.config.common.default = "*";
-  xdg.portal.wlr.enable = true;
-  xdg.portal.enable = true;
-
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
   services.flatpak.enable = true;
 
   system.stateVersion = "24.05";
