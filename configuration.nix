@@ -3,6 +3,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    <home-manager/nixos>
   ];
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -59,6 +60,37 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ firefox git ];
   };
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
+
+  # Required for sway from home-manager to work.
+  security.polkit.enable = true;
+
+  # Define local user configuration.
+  home-manager.users.mekosko = {
+    programs.git = {
+      enable = true;
+      userEmail = "mekosko@projectyo.network";
+      userName = "mekosko";
+    };
+    wayland.windowManager.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+      config.modifier = "Mod4";
+    };
+    wayland.windowManager.sway.config.input = {
+      "*" = {
+        xkb_options = "grp:alt_shift_toggle";
+        xkb_layout = "us,ru";
+        xkb_variant = ",";
+      };
+      "type:touchpad" = {
+        natural_scroll = "enabled";
+        tap = "enabled";
+      };
+    };
+    home.stateVersion = "24.05";
+  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -75,11 +107,11 @@
     wl-clipboard
     wofi
   ];
+  xdg.portal.config.common.default = "*";
+  xdg.portal.wlr.enable = true;
+  xdg.portal.enable = true;
+
   services.flatpak.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   system.stateVersion = "24.05";
 }
