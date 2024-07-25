@@ -12,11 +12,13 @@
   };
   powerManagement.enable = false;
 
+  # Suspend is not working properly on my machine.
   systemd.targets.hybrid-sleep.enable = false;
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.sleep.enable = false;
 
+  # Power off at 10% charge to save battery.
   services.upower = {
     enable = true;
     criticalPowerAction = "PowerOff";
@@ -24,6 +26,10 @@
     percentageCritical = 15;
     percentageLow = 20;
   };
+
+  # Display manager required for upower to work.
+  services.displayManager.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
