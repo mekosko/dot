@@ -73,6 +73,13 @@
       userEmail = "mekosko@projectyo.network";
       userName = "mekosko";
     };
+    programs.foot.enable = true;
+    programs.foot.settings = {
+      main = {
+        font = "CascadiaMono:size=19";
+        term = "xterm-256color";
+      };
+    };
     wayland.windowManager.sway = {
       enable = true;
       config.modifier = "Mod4";
@@ -97,6 +104,9 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  # My preferred font for coding.
+  fonts.packages = with pkgs; [ cascadia-code ];
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
