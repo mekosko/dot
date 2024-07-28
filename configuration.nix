@@ -8,8 +8,8 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   boot.initrd.luks.devices = {
-    "luks-main-nvme-HFM256GDJTNG-8310A_CY02N00231100230M-part2".device =
-      "/dev/disk/by-id/nvme-HFM256GDJTNG-8310A_CY02N00231100230M-part2";
+    "luks-main-scsi-2SAMSUNG-part2".device =
+      "/dev/disk/by-id/scsi-2SAMSUNG-part2";
   };
   powerManagement.enable = false;
 
