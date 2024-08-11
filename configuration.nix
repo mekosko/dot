@@ -13,6 +13,10 @@
   };
   powerManagement.enable = false;
 
+  # Things for development
+  networking.hosts = { "fd00:5050:5050:5050:5050::40" = [ "stokejo" ]; };
+  virtualisation.docker.enable = true;
+
   # Suspend is not working properly on my machine.
   systemd.targets.hybrid-sleep.enable = false;
   systemd.targets.suspend.enable = false;
@@ -57,8 +61,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mekosko = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ firefox git ];
+    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [ firefox firefox-devedition git ];
   };
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
@@ -83,6 +87,9 @@
     wayland.windowManager.sway = {
       enable = true;
       config.modifier = "Mod4";
+      config.keybindings = lib.mkOptionDefault {
+        "Mod4+Print" = ''exec grim -g "$(slurp -d)" - | wl-copy -t image/png'';
+      };
     };
     wayland.windowManager.sway.config.input = {
       "*" = {
@@ -114,12 +121,16 @@
     brightnessctl
     grim
     helix
+    libsecret
     mako
+    networkmanager-openvpn
     nixfmt-classic
     pulsemixer
+    rustup
     slurp
     waybar
     wget
+    wireguard-tools
     wl-clipboard
     wofi
   ];
