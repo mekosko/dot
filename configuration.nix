@@ -74,7 +74,7 @@
   home-manager.users.mekosko = {
     programs.git = {
       enable = true;
-      userEmail = "mekosko@projectyo.network";
+      userEmail = "mekosko@morojenoye.com";
       userName = "mekosko";
     };
     programs.foot.enable = true;
@@ -101,6 +101,7 @@
         natural_scroll = "enabled";
         tap = "enabled";
       };
+      "type:pointer".pointer_accel = "-0.7";
     };
     home.stateVersion = "24.05";
   };
@@ -126,8 +127,10 @@
     networkmanager-openvpn
     nixfmt-classic
     pulsemixer
+    qemu_full
     rustup
     slurp
+    way-displays
     waybar
     wget
     wireguard-tools
