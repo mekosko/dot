@@ -97,6 +97,33 @@
       };
       "type:pointer".pointer_accel = "-0.7";
     };
+    wayland.windowManager.sway.config.bars = [{ command = "waybar"; }];
+    home.file.".config/waybar/config".text = builtins.toJSON {
+      position = "top";
+      height = 30;
+
+      modules-left = [ "sway/workspaces" ];
+      layer = "top";
+
+      memory = { format = "RAM: {used} / {total}"; };
+      pulseaudio.format = "AUX: {volume}%";
+
+      network = { format = "{ifname}: {ipaddr}"; };
+      clock = { format = "{:%e %b %Y %H:%M}"; };
+
+      battery.format = "BAT: {capacity}%";
+      cpu = { format = "CPU: {usage}%"; };
+
+      modules-right = [ # =
+        "network"
+        "cpu"
+        "memory"
+        "battery"
+        "pulseaudio"
+        "clock"
+      ];
+    };
+    programs.waybar.enable = true;
     home.stateVersion = "24.11";
   };
 
