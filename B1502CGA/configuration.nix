@@ -120,6 +120,7 @@
         "memory"
         "battery"
         "pulseaudio"
+        "tray"
         "clock"
       ];
     };
@@ -133,6 +134,16 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  # Enable UWSM to make better environment.
+  programs.uwsm.waylandCompositors = {
+    sway = {
+      prettyName = "Sway";
+      comment = "Sway compositor managed by UWSM";
+      binPath = "/run/current-system/sw/bin/sway";
+    };
+  };
+  programs.uwsm.enable = true;
 
   # My preferred font for coding.
   fonts.packages = with pkgs; [ cascadia-code ];
@@ -159,6 +170,7 @@
     wofi
   ];
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   system.stateVersion = "24.11";
 }
