@@ -6,6 +6,8 @@
     <home-manager/nixos>
   ];
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   hardware.bluetooth.powerOnBoot = true;
   powerManagement.enable = false;
 
@@ -145,6 +147,10 @@
   };
   programs.uwsm.enable = true;
 
+  # Setup unfree packages and steam.
+  nixpkgs.config.allowUnfree = true;
+  programs.steam.enable = true;
+
   # My preferred font for coding.
   fonts.packages = with pkgs; [ cascadia-code ];
 
@@ -154,6 +160,7 @@
     brightnessctl
     grim
     helix
+    htop
     libsecret
     mako
     networkmanager-openvpn
